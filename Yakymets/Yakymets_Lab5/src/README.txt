@@ -1,0 +1,3 @@
+TSP_STATIC contains java applet for static coordinates. This is the program that was used for this lab. assignment.//For comments open with notepad++ due to eclipse corruption
+TSP_GEN contains java applet to generate a list of static cities for TSP_STATIC. // For comments open with notepad++ due to eclipse corruption
+TSP_RANDOM contains java applet for random coordinates. Program generates its own coordinates each time "Start" is pressed. //For comments open with notepad++ due to eclipse corruption
