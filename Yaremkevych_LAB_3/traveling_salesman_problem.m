@@ -1,5 +1,4 @@
-
-cities = 20;%кількість міст
+п»їcities = 20;%РєС–Р»СЊРєС–СЃС‚СЊ РјС–СЃС‚
 locations = zeros(cities,2);
 mas = zeros(cities,2);
 x=cell(1,1);
@@ -12,7 +11,7 @@ x=cell(1,1);
 x{1}=mas(1,:);
 plot(locations(:,1),locations(:,2),'bo')
 distances = zeros(cities);
-for count1=1:cities,%знаходження відстані між містами
+for count1=1:cities,%Р·РЅР°С…РѕРґР¶РµРЅРЅСЏ РІС–РґСЃС‚Р°РЅС– РјС–Р¶ РјС–СЃС‚Р°РјРё
     for count2=1:count1,
         x1 = locations(count1,1);
         y1 = locations(count1,2);
@@ -22,21 +21,20 @@ for count1=1:cities,%знаходження відстані між містами
         distances(count2,count1)=distances(count1,count2);
     end;
 end;
-
+ 
 FitnessFcn = @(x) traveling_fitness(x,distances);
 my_plot = @(options,state,flag) traveling_s_plot(options, ...
     state,flag,locations);
 c = clock;
-
+ 
 options = gaoptimset('CreationFcn',@create_permutations, ...
     'CrossoverFcn',@crossover_pmx, ...
     'MutationFcn',@invert_classic, ...
     'PlotFcn', my_plot, ...
     'Generations',500,'PopulationSize',100);
-
+ 
 [x,fval,reason,output] = ga(FitnessFcn,cities,options)
 lastPopul = population(length(population))
 c2 = clock;
-time=c-c2%знаходження часу роботи оптимізації
+time=c-c2%Р·РЅР°С…РѕРґР¶РµРЅРЅСЏ С‡Р°СЃСѓ СЂРѕР±РѕС‚Рё РѕРїС‚РёРјС–Р·Р°С†С–С—
  displayEndOfDemoMessage(mfilename)
-
